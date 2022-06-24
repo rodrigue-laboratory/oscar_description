@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<robot name="newport_sa2_30x30" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="newport_sa2_30x30" params="prefix">
+    <link name="${prefix}base">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="19.86735" />
+        <inertia
+          ixx="0"
+          ixy="0"
+          ixz="0"
+          iyy="0"
+          iyz="0"
+          izz="0" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://mimic_description/meshes/newport/visual/sa2_30x30.dae"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://mimic_description/meshes/newport/collision/sa2_30x30.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}tabletop" />
+
+    <joint name="${prefix}tabletop_joint" type="fixed">
+      <origin xyz="0 0 0.0127" rpy="0 0 0" />
+      <parent link="${prefix}base" />
+      <child link="${prefix}tabletop" />
+    </joint>
+
+  </xacro:macro>
+</robot>

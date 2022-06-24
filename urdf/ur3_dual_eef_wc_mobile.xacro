@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<robot name="ur3_dual_eef_wc_mobile" xmlns:xacro="http://ros.org/wiki/xacro" >
+  <xacro:include filename="$(find mimic_description)/urdf/newport/sa2_30x30_macro.xacro"/>
+  <xacro:include filename="$(find mimic_description)/urdf/mimic/ur3_mounting_plate_macro.xacro"/>
+  <xacro:include filename="$(find ur_description)/urdf/inc/ur3_macro.xacro"/>
+  <xacro:include filename="$(find robotiq_description)/urdf/robotiq_ft_300/robotiq_ft_300_macro.xacro"/>
+  <xacro:include filename="$(find robotiq_description)/urdf/robotiq_agc_apl_159_002/robotiq_agc_apl_159_002_macro.xacro"/>
+  <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_140/inc/robotiq_2f_140_macro.xacro"/>
+
+  <!-- Optical tabletop breadboard -->
+  <xacro:newport_sa2_30x30
+    prefix="newport_"/>
+
+  <xacro:mimic_ur3_mounting_plate
+    prefix="ur3_mounting_"/>
+
+  <!-- UR3 with S/N: 2017333047 -->
+  <xacro:ur3_robot
+    prefix="ur3_"
+    kinematics_parameters_file="$(find mimic_ur_launch)/etc/ur3-2017333047-calibration.yaml"
+    visual_parameters_file="$(find ur_description)/config/ur3/visual_parameters_bbox.yaml"/>
+
+  <xacro:robotiq_ft_300
+    prefix="robotiq_ft300_"
+    visual_parameters_file="$(find robotiq_description)/config/robotiq_ft_300/visual_parameters_bbox.yaml"/>
+
+  Dual gripper mounting plate
+  <xacro:robotiq_agc_apl_159_002
+    prefix="dual_gripper_"
+    visual_parameters_file="$(find robotiq_description)/config/robotiq_agc_apl_159_002/visual_parameters_bbox.yaml"/>
+
+  <xacro:robotiq_2f_140
+    prefix="robotiq_2f140_"
+    visual_parameters_file="$(find robotiq_description)/config/robotiq_2f_140/visual_parameters_bbox.yaml"/>
+
+  <joint name="tabletop_ur3_mounting_plate_coupling" type="fixed">
+    <parent link= "newport_tabletop" />
+    <child link = "ur3_mounting_plate_base" />
+    <!-- Tabletop has matrix of 1" hole gap-->
+    <origin xyz="${-10*0.0254} ${-12*0.0254} 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <joint name="ur3_mounting_plate_ur3_coupling" type="fixed">
+    <parent link= "ur3_mounting_plate" />
+    <child link = "ur3_base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <joint name="ur3_robotiqft300_coupling" type="fixed">
+    <parent link= "ur3_flange" />
+    <child link = "robotiq_ft300_mounting_plate" />
+    <!-- Align mounting plate to flange -->
+    <origin xyz="0.0 0.0 0.0" rpy="${pi} 0.0 0.0" />
+  </joint>
+
+  <joint name="robotiqft300_dual_gripper_coupling" type="fixed">
+    <parent link= "robotiq_ft300_sensor" />
+    <child link = "dual_gripper_mounting_plate" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <joint name="dual_gripper_left_flange_robotiq140_coupling" type="fixed">
+    <parent link= "dual_gripper_left_flange" />
+    <child link = "robotiq_2f140_base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+</robot>

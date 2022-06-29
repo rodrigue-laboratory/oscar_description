@@ -6,6 +6,7 @@
   <xacro:include filename="$(find robotiq_description)/urdf/robotiq_ft_300/robotiq_ft_300_macro.xacro"/>
   <xacro:include filename="$(find robotiq_description)/urdf/robotiq_agc_apl_159_002/robotiq_agc_apl_159_002_macro.xacro"/>
   <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_140/inc/robotiq_2f_140_macro.xacro"/>
+  <xacro:include filename="$(find mimic_description)/urdf/mimic/pipette_macro.xacro"/>
 
   <!-- Optical tabletop breadboard -->
   <xacro:newport_sa2_30x30
@@ -32,6 +33,9 @@
   <xacro:robotiq_2f_140
     prefix="robotiq_2f140_"
     visual_parameters_file="$(find robotiq_description)/config/robotiq_2f_140/visual_parameters_bbox.yaml"/>
+
+  <xacro:mimic_pipette
+    prefix="pipette_"/>
 
   <joint name="tabletop_ur3_mounting_plate_coupling" type="fixed">
     <parent link= "newport_tabletop" />
@@ -62,6 +66,12 @@
   <joint name="dual_gripper_left_flange_robotiq140_coupling" type="fixed">
     <parent link= "dual_gripper_left_flange" />
     <child link = "robotiq_2f140_base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <joint name="dual_gripper_right_flange_pipette_coupling" type="fixed">
+    <parent link= "dual_gripper_right_flange" />
+    <child link = "pipette_mounting_plate" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
 </robot>

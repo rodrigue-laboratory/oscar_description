@@ -8,6 +8,47 @@
   <xacro:include filename="$(find robotiq_description)/urdf/robotiq_2f_140/inc/robotiq_2f_140_macro.xacro"/>
   <xacro:include filename="$(find mimic_description)/urdf/mimic/pipette_macro.xacro"/>
 
+
+  <!-- Table supporting the tabletop breadboard -->
+  <link name="tabletop">
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0 0" rpy="0 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <box size="1.27 1.1176 0.0254"/> -->
+    <!--   </geometry> -->
+    <!--   <material name=""> -->
+    <!--     <color rgba="0.79216 0.81961 0.93333 1" /> -->
+    <!--   </material> -->
+    <!-- </visual> -->
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="1.27 1.1176 0.0254"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Wall -->
+  <link name="wall">
+    <!-- <visual> -->
+    <!--   <origin xyz="0 0 0" rpy="${-pi/2} 0 0"/> -->
+    <!--   <geometry> -->
+    <!--     <box size="1.27 1.1176 0.0254"/> -->
+    <!--   </geometry> -->
+    <!--   <material name=""> -->
+    <!--     <color rgba="0.79216 0.81961 0.93333 1" /> -->
+    <!--   </material> -->
+    <!-- </visual> -->
+    <collision>
+      <origin xyz="0 0 0" rpy="${-pi/2} 0 0"/>
+      <geometry>
+        <box size="1.27 1.1176 0.0254"/>
+      </geometry>
+    </collision>
+  </link>
+
+
+
   <!-- Optical tabletop breadboard -->
   <xacro:newport_sa2_30x30
     prefix="newport_"/>
@@ -37,7 +78,20 @@
   <xacro:mimic_pipette
     prefix="pipette_"/>
 
-  <joint name="tabletop_ur3_mounting_plate_coupling" type="fixed">
+  <joint name="tabletop_newport_tabletop_joint" type="fixed">
+    <parent link= "tabletop" />
+    <child link = "newport_base" />
+    <!-- Offset by 1.5 inch for mounting foot height -->
+    <origin xyz="0 0 ${1.5 * 0.0254 + 0.0254/2}" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <joint name="tabletop_wall_joint" type="fixed">
+    <parent link= "tabletop" />
+    <child link = "wall" />
+    <origin xyz="0 ${-(22 * 0.0254 - 0.0254/2)} ${44*0.0254/2}" rpy="0.0 0.0 0.0" />
+  </joint>
+
+  <joint name="newport_tabletop_ur3_mounting_plate_coupling" type="fixed">
     <parent link= "newport_tabletop" />
     <child link = "ur3_mounting_plate_base" />
     <!-- Tabletop has matrix of 1" hole gap-->

@@ -3,7 +3,7 @@
 
   <xacro:macro name="mimic_pipette" params="prefix">
     <!-- TODO measure or calculate -->
-    <link name="${prefix}mounting_plate">
+    <link name="${prefix}base">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <mass value="0.5" />
@@ -34,9 +34,9 @@
 
     <link name="${prefix}tcp" />
 
-    <joint name="${prefix}mounting_plate_joint" type="fixed">
+    <joint name="${prefix}tcp_joint" type="fixed">
       <origin xyz="0.25344 0 0" rpy="0 0 0" />
-      <parent link="${prefix}mounting_plate" />
+      <parent link="${prefix}base" />
       <child link="${prefix}tcp" />
     </joint>
 

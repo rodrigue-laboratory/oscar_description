@@ -2,7 +2,7 @@
 <robot name="mimic_ur3_mounting_plate" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <xacro:macro name="mimic_ur3_mounting_plate" params="prefix">
-    <link name="${prefix}plate_base">
+    <link name="${prefix}base">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <!-- Not measured -->
@@ -32,13 +32,13 @@
       </collision>
     </link>
 
-    <link name="${prefix}plate" />
+    <link name="${prefix}robotside" />
 
     <!-- Mean of multiple points of the surface -->
-    <joint name="${prefix}plate_joint" type="fixed">
+    <joint name="${prefix}robotside_joint" type="fixed">
       <origin xyz="0 0 0.01309" rpy="0 0 0" />
-      <parent link="${prefix}plate_base" />
-      <child link="${prefix}plate" />
+      <parent link="${prefix}base" />
+      <child link="${prefix}robotside" />
     </joint>
 
   </xacro:macro>

@@ -8,6 +8,8 @@ Panels:
         - /Status1
         - /RobotModel1
         - /RobotModel1/Links1
+        - /RobotModel1/Links1/newport_base1/Position1
+        - /Axes1
       Splitter Ratio: 0.7117646932601929
     Tree Height: 839
   - Class: rviz/Selection
@@ -64,16 +66,16 @@ Visualization Manager:
         Expand Link Details: false
         Expand Tree: false
         Link Tree Style: Links in Alphabetic Order
-        dual_gripper_left_flange:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        dual_gripper_mounting_plate:
+        dual_gripper_coupling_robotside:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        dual_gripper_right_flange:
+        dual_gripper_coupling_toolside_left:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        dual_gripper_coupling_toolside_right:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -83,6 +85,15 @@ Visualization Manager:
           Show Trail: false
           Value: true
         newport_tabletop:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        pipette_base:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        pipette_tcp:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -145,16 +156,29 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        robotiq_ft300_ft_frame_id:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-        robotiq_ft300_mounting_plate:
+        robotiq_ft300_coupling_robotside:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        robotiq_ft300_sensor:
+        robotiq_ft300_coupling_toolside:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robotiq_ft300_frame_id:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        robotiq_ft300_robotside:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        robotiq_ft300_toolside:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        tabletop:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -181,15 +205,15 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        ur3_mounting_plate:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
         ur3_mounting_plate_base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        ur3_mounting_plate_robotside:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         ur3_shoulder_link:
           Alpha: 1
           Show Axes: false
@@ -219,17 +243,31 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        wall:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Name: RobotModel
       Robot Description: robot_description
       TF Prefix: ""
       Update Interval: 0
       Value: true
       Visual Enabled: true
+    - Alpha: 1
+      Class: rviz/Axes
+      Enabled: true
+      Length: 0.10000000149011612
+      Name: Axes
+      Radius: 0.009999999776482582
+      Reference Frame: newport_tabletop
+      Show Trail: false
+      Value: true
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
     Default Light: true
-    Fixed Frame: newport_base
+    Fixed Frame: newport_tabletop
     Frame Rate: 30
   Name: root
   Tools:
@@ -253,7 +291,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 1.1047519445419312
+      Distance: 1.1300603151321411
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -261,17 +299,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: 0.06625338643789291
-        Y: -0.026536960154771805
-        Z: 0.09446354955434799
+        X: -6.234008469618857e-05
+        Y: 0.07271186262369156
+        Z: 0.13182511925697327
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.4797970950603485
+      Pitch: 0.4097973108291626
       Target Frame: <Fixed Frame>
-      Yaw: 1.6703993082046509
+      Yaw: 1.2304019927978516
     Saved: ~
 Window Geometry:
   Displays:

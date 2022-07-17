@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<robot name="calibration_adapter_robotiq2f140" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="calibration_adapter_robotiq2f140" params="prefix">
+    <link name="${prefix}base">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <!-- Not measured -->
+        <mass value="0.5" />
+        <inertia
+          ixx="0"
+          ixy="0"
+          ixz="0"
+          iyy="0"
+          iyz="0"
+          izz="0" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://mimic_description/meshes/mimic/visual/calibration_adapter_robotiq2f140.dae"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://mimic_description/meshes/mimic/collision/calibration_adapter_robotiq2f140.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+  </xacro:macro>
+</robot>

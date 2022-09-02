@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot name="mimic_capture_tool" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="mimic_capture_tool" params="prefix">
+    <!-- TODO measure or calculate -->
+    <link name="${prefix}robotside">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="0.5" />
+        <inertia
+          ixx="0"
+          ixy="0"
+          ixz="0"
+          iyy="0"
+          iyz="0"
+          izz="0" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://mimic_description/meshes/mimic/visual/capture_tool.dae"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://mimic_description/meshes/mimic/collision/capture_tool.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}tcp" />
+
+    <joint name="${prefix}tcp_joint" type="fixed">
+      <origin xyz="0.0745 0 0" rpy="0 0 0" />
+      <parent link="${prefix}robotside" />
+      <child link="${prefix}tcp" />
+    </joint>
+
+  </xacro:macro>
+</robot>

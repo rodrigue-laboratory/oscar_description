@@ -1,12 +1,11 @@
 <?xml version="1.0"?>
-<robot name="calibration_adapter_robotiq2f140" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="thermal_cycler_t100_open" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="calibration_adapter_robotiq2f140" params="prefix">
+  <xacro:macro name="thermal_cycler_t100_open" params="prefix">
     <link name="${prefix}base">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <!-- Not measured -->
-        <mass value="0.5" />
+        <mass value="19.86735" />
         <inertia
           ixx="0"
           ixy="0"
@@ -18,7 +17,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimic_description/meshes/mimic/visual/calibration_adapter_robotiq2f140.dae"/>
+          <mesh filename="package://mimic_description/meshes/biorad/thermal_cycler_t100/visual/full_open_226k.dae"/>
         </geometry>
         <material name="">
           <color rgba="0.79216 0.81961 0.93333 1" />
@@ -27,10 +26,11 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimic_description/meshes/mimic/collision/calibration_adapter_robotiq2f140.stl"/>
+          <mesh filename="package://mimic_description/meshes/biorad/thermal_cycler_t100/collision/full_open_226k.stl"/>
         </geometry>
       </collision>
     </link>
+
 
   </xacro:macro>
 </robot>

@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<robot name="newport_sa2_30x30" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="mimic_biorad_t100_adapter" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="newport_sa2_30x30" params="prefix">
+  <xacro:macro name="mimic_biorad_t100_adapter" params="prefix">
+    <!-- TODO measure or calculate -->
     <link name="${prefix}base">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <mass value="19.86735" />
+        <mass value="0.5" />
         <inertia
           ixx="0"
           ixy="0"
@@ -17,7 +18,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-		<mesh filename="package://mimic_description/meshes/newport/sa2_30x30/visual/101k.dae"/>
+          <mesh filename="package://mimic_description/meshes/mimic/biorad_t100_adapter/visual/50k.dae"/>
         </geometry>
         <material name="">
           <color rgba="0.79216 0.81961 0.93333 1" />
@@ -26,18 +27,11 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-		<mesh filename="package://mimic_description/meshes/newport/sa2_30x30/collision/p12.stl"/>
+          <mesh filename="package://mimic_description/meshes/mimic/biorad_t100_adapter/collision/50k.stl"/>
         </geometry>
       </collision>
     </link>
 
-    <link name="${prefix}tabletop" />
-
-    <joint name="${prefix}tabletop_joint" type="fixed">
-      <origin xyz="0 0 0.0127" rpy="0 0 0" />
-      <parent link="${prefix}base" />
-      <child link="${prefix}tabletop" />
-    </joint>
 
   </xacro:macro>
 </robot>

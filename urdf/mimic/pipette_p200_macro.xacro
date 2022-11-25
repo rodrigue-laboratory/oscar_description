@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<robot name="mimic_capture_tool" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="mimic_pipette_p200" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="mimic_capture_tool" params="prefix">
+  <xacro:macro name="mimic_pipette_p200" params="prefix">
     <!-- TODO measure or calculate -->
-    <link name="${prefix}robotside">
+    <link name="${prefix}base">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <mass value="0.5" />
@@ -18,7 +18,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimic_description/meshes/mimic/visual/capture_tool.dae"/>
+          <mesh filename="package://mimic_description/meshes/mimic/pipette_p200/visual/9k.dae"/>
         </geometry>
         <material name="">
           <color rgba="0.79216 0.81961 0.93333 1" />
@@ -27,7 +27,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimic_description/meshes/mimic/collision/capture_tool.stl"/>
+          <mesh filename="package://mimic_description/meshes/mimic/pipette_p200/collision/p36.stl"/>
         </geometry>
       </collision>
     </link>
@@ -35,8 +35,8 @@
     <link name="${prefix}tcp" />
 
     <joint name="${prefix}tcp_joint" type="fixed">
-      <origin xyz="0.0745 0 0" rpy="0 0 0" />
-      <parent link="${prefix}robotside" />
+      <origin xyz="0.25344 0 0" rpy="0 0 0" />
+      <parent link="${prefix}base" />
       <child link="${prefix}tcp" />
     </joint>
 

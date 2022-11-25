@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<robot name="mimic_ur3_mounting_plate" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="mimic_robotiq_2f140_calibration_adapter" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="mimic_ur3_mounting_plate" params="prefix">
+  <xacro:macro name="mimic_robotiq_2f140_calibration_adapter" params="prefix">
     <link name="${prefix}base">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -18,7 +18,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimic_description/meshes/mimic/ur3_mounting_plate/visual/2k.dae"/>
+          <mesh filename="package://mimic_description/meshes/mimic/robotiq_2f140_calibration_adapter/visual/928.dae"/>
         </geometry>
         <material name="">
           <color rgba="0.79216 0.81961 0.93333 1" />
@@ -27,19 +27,10 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimic_description/meshes/mimic/ur3_mounting_plate/collision/cv12.stl"/>
+          <mesh filename="package://mimic_description/meshes/mimic/robotiq_2f140_calibration_adapter/collision/928.stl"/>
         </geometry>
       </collision>
     </link>
-
-    <link name="${prefix}robotside" />
-
-    <!-- Mean of multiple points of the surface -->
-    <joint name="${prefix}robotside_joint" type="fixed">
-      <origin xyz="0 0 0.01309" rpy="0 0 0" />
-      <parent link="${prefix}base" />
-      <child link="${prefix}robotside" />
-    </joint>
 
   </xacro:macro>
 </robot>

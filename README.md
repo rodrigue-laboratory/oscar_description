@@ -1,6 +1,6 @@
-# Mimic Description
+# Mimik Description
 
-Mimic's collection of object meshes (collision + visual) and description format (URDF).
+Mimik's collection of object meshes (collision + visual) and description format (URDF).
 
 ## Name convention
 Convention used for all mesh names throughout this package:

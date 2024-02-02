@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<robot name="intel_realsense_d415" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="intel_realsense_d415" params="prefix">
+    <link name="${prefix}backside">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <!-- The weight can be +/- 10% from the nominal. Bulk cameras are shipped without the USB cap which weighs around 2.3g -->
+        <mass value="0.064" />
+        <inertia
+          ixx="0"
+          ixy="0"
+          ixz="0"
+          iyy="0"
+          iyz="0"
+          izz="0" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://mimik_description/meshes/intel/realsense_d415/visual/23k.dae"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://mimik_description/meshes/intel/realsense_d415/collision/p12.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}optical" />
+
+    <joint name="${prefix}rearside_joint" type="fixed">
+      <origin xyz="0.0043 0 0" rpy="0 0 0" />
+      <parent link="${prefix}backside" />
+      <child link="${prefix}optical" />
+    </joint>
+
+  </xacro:macro>
+</robot>

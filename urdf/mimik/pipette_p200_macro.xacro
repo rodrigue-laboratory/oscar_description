@@ -32,12 +32,13 @@
       </collision>
     </link>
 
-    <link name="${prefix}tcp" />
+    <link name="${prefix}tip" />
 
-    <joint name="${prefix}tcp_joint" type="fixed">
-      <origin xyz="0.25344 0 0" rpy="0 0 0" />
+    <joint name="${prefix}tip_joint" type="fixed">
+      <!-- Original CAD -->
+      <origin xyz="0.253442 0 0" rpy="0 0 0" />
       <parent link="${prefix}base" />
-      <child link="${prefix}tcp" />
+      <child link="${prefix}tip" />
     </joint>
 
   </xacro:macro>

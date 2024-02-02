@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<robot name="picknik_ur5_realsense_camera_adapter" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="picknik_ur5_realsense_camera_adapter" params="prefix">
+    <link name="${prefix}robotside">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <mass value="0.03" /><!--TODO check with 3d printer-->
+        <inertia
+          ixx="0"
+          ixy="0"
+          ixz="0"
+          iyy="0"
+          iyz="0"
+          izz="0" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://mimik_description/meshes/picknik/ur5_realsense_camera_adapter/visual/28k.dae"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://mimik_description/meshes/picknik/ur5_realsense_camera_adapter/collision/p12.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}toolside" />
+    <link name="${prefix}camera" />
+
+    <joint name="${prefix}toolside_joint" type="fixed">
+      <origin xyz="0.007 0 0" rpy="0 0 0" />
+      <parent link="${prefix}robotside" />
+      <child link="${prefix}toolside" />
+    </joint>
+
+    <joint name="${prefix}camera_joint" type="fixed">
+      <origin xyz="0.00865 0 0.07977" rpy="0 ${(2/45)*pi} 0" />
+      <parent link="${prefix}robotside" />
+      <child link="${prefix}camera" />
+    </joint>
+
+  </xacro:macro>
+</robot>

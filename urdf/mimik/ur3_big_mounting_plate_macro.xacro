@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<robot name="mimik_ur3_big_mounting_plate" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="mimik_ur3_big_mounting_plate" params="prefix">
+    <link name="${prefix}base">
+      <inertial>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <!-- Not measured -->
+        <mass value="0.5" />
+        <inertia
+          ixx="0"
+          ixy="0"
+          ixz="0"
+          iyy="0"
+          iyz="0"
+          izz="0" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://mimik_description/meshes/mimik/ur3_big_mounting_plate/visual/171k.dae"/>
+        </geometry>
+        <material name="">
+          <color rgba="0.79216 0.81961 0.93333 1" />
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry>
+          <mesh filename="package://mimik_description/meshes/mimik/ur3_big_mounting_plate/collision/bb12.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <link name="${prefix}robotside" />
+
+    <!-- Mean of multiple points of the surface -->
+    <joint name="${prefix}robotside_joint" type="fixed">
+      <!-- <origin xyz="0 0 0.01309" rpy="0 0 0" /> -->
+      <origin xyz="0 0 0.1651" rpy="0 0 0" />
+      <parent link="${prefix}base" />
+      <child link="${prefix}robotside" />
+    </joint>
+
+  </xacro:macro>
+</robot>

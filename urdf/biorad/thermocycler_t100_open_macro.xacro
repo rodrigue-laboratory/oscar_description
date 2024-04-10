@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<robot name="biorad_thermal_cycler_t100_open" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="biorad_thermocycler_t100_open" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="biorad_thermal_cycler_t100_open" params="prefix">
+  <xacro:macro name="biorad_thermocycler_t100_open" params="prefix">
     <link name="${prefix}base">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -17,7 +17,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimik_description/meshes/biorad/thermal_cycler_t100/visual/full_open_226k.dae"/>
+          <mesh filename="package://mimik_description/meshes/biorad/thermocycler_t100/visual/full_open_226k.dae"/>
         </geometry>
         <material name="">
           <color rgba="0.79216 0.81961 0.93333 1" />
@@ -26,7 +26,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimik_description/meshes/biorad/thermal_cycler_t100/collision/full_open_226k.stl"/>
+          <mesh filename="package://mimik_description/meshes/biorad/thermocycler_t100/collision/full_open_226k.stl"/>
         </geometry>
       </collision>
     </link>

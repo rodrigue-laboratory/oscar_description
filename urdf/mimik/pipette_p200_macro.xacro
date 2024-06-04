@@ -27,7 +27,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimik_description/meshes/mimik/pipette_p200/collision/p36.stl"/>
+          <mesh filename="package://mimik_description/meshes/mimik/pipette_p200/collision/pipette_p200_coarse.stl"/>
         </geometry>
       </collision>
     </link>

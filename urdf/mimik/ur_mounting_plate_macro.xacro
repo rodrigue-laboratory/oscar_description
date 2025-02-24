@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<robot name="mimik_ur3_mounting_plate" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="mimik_ur_mounting_plate" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="mimik_ur3_mounting_plate" params="prefix">
+  <xacro:macro name="mimik_ur_mounting_plate" params="prefix">
     <link name="${prefix}base">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -18,7 +18,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimik_description/meshes/mimik/ur3_mounting_plate/visual/2k.dae"/>
+          <mesh filename="package://mimik_description/meshes/mimik/ur_mounting_plate/visual/2k.dae"/>
         </geometry>
         <material name="">
           <color rgba="0.79216 0.81961 0.93333 1" />
@@ -27,7 +27,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimik_description/meshes/mimik/ur3_mounting_plate/collision/cv12.stl"/>
+          <mesh filename="package://mimik_description/meshes/mimik/ur_mounting_plate/collision/cv12.stl"/>
         </geometry>
       </collision>
     </link>

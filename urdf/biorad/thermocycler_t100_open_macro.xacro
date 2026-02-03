@@ -17,7 +17,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimik_description/meshes/biorad/thermocycler_t100/visual/full_open_226k.dae"/>
+          <mesh filename="package://oscar_description/meshes/biorad/thermocycler_t100/visual/full_open_226k.dae"/>
         </geometry>
         <material name="">
           <color rgba="0.79216 0.81961 0.93333 1" />
@@ -26,7 +26,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimik_description/meshes/biorad/thermocycler_t100/collision/full_open_226k.stl"/>
+          <mesh filename="package://oscar_description/meshes/biorad/thermocycler_t100/collision/full_open_226k.stl"/>
         </geometry>
       </collision>
     </link>

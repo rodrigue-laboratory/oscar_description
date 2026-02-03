@@ -18,7 +18,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimik_description/meshes/intel/realsense_d415/visual/23k.dae"/>
+          <mesh filename="package://oscar_description/meshes/intel/realsense_d415/visual/23k.dae"/>
         </geometry>
         <material name="">
           <color rgba="0.79216 0.81961 0.93333 1" />
@@ -27,7 +27,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimik_description/meshes/intel/realsense_d415/collision/p12.stl"/>
+          <mesh filename="package://oscar_description/meshes/intel/realsense_d415/collision/p12.stl"/>
         </geometry>
       </collision>
     </link>

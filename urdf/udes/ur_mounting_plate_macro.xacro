@@ -1,11 +1,12 @@
 <?xml version="1.0"?>
-<robot name="newport_vh3660_48x48" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="udes_ur_mounting_plate" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="newport_vh3660_48x48" params="prefix">
+  <xacro:macro name="udes_ur_mounting_plate" params="prefix">
     <link name="${prefix}base">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <mass value="19.86735" />
+        <!-- Not measured -->
+        <mass value="0.5" />
         <inertia
           ixx="0"
           ixy="0"
@@ -17,7 +18,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-		<mesh filename="package://oscar_description/meshes/newport/vh3660/visual/82k.dae"/>
+          <mesh filename="package://oscar_description/meshes/udes/ur_mounting_plate/visual/2k.dae"/>
         </geometry>
         <material name="">
           <color rgba="0.79216 0.81961 0.93333 1" />
@@ -26,18 +27,18 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-		<mesh filename="package://oscar_description/meshes/newport/vh3660/collision/bb12.stl"/>
+          <mesh filename="package://oscar_description/meshes/udes/ur_mounting_plate/collision/cv12.stl"/>
         </geometry>
       </collision>
     </link>
 
-    <link name="${prefix}tabletop" />
+    <link name="${prefix}robotside" />
 
-    <joint name="${prefix}tabletop_joint" type="fixed">
-      <!-- Taken from CAD in inches, converted to meters -->
-      <origin xyz="0 0 ${4.3215 * 0.0254}" rpy="0 0 0" />
+    <!-- Mean of multiple points of the surface -->
+    <joint name="${prefix}robotside_joint" type="fixed">
+      <origin xyz="0 0 0.01309" rpy="0 0 0" />
       <parent link="${prefix}base" />
-      <child link="${prefix}tabletop" />
+      <child link="${prefix}robotside" />
     </joint>
 
   </xacro:macro>

@@ -1,6 +1,6 @@
-# Mimik Description
+# OSCAR Description
 
-Mimik's collection of object meshes (collision + visual) and description format (URDF).
+OSCAR platform collection of object meshes (collision + visual) and description format (URDF).
 
 ## Name convention
 Convention used for all mesh names throughout this package:

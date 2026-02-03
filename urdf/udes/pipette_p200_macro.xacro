@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
-<robot name="mimik_robotiq_2f140_calibration_adapter" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="udes_pipette_p200" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:macro name="mimik_robotiq_2f140_calibration_adapter" params="prefix">
+  <xacro:macro name="udes_pipette_p200" params="prefix">
+    <!-- TODO measure or calculate -->
     <link name="${prefix}base">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <!-- Not measured -->
         <mass value="0.5" />
         <inertia
           ixx="0"
@@ -18,7 +18,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimik_description/meshes/mimik/robotiq_2f140_calibration_adapter/visual/928.dae"/>
+          <mesh filename="package://oscar_description/meshes/udes/pipette_p200/visual/9k.dae"/>
         </geometry>
         <material name="">
           <color rgba="0.79216 0.81961 0.93333 1" />
@@ -27,10 +27,19 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
-          <mesh filename="package://mimik_description/meshes/mimik/robotiq_2f140_calibration_adapter/collision/928.stl"/>
+          <mesh filename="package://oscar_description/meshes/udes/pipette_p200/collision/pipette_p200_coarse.stl"/>
         </geometry>
       </collision>
     </link>
+
+    <link name="${prefix}tip" />
+
+    <joint name="${prefix}tip_joint" type="fixed">
+      <!-- Original CAD -->
+      <origin xyz="0.253442 0 0" rpy="0 0 0" />
+      <parent link="${prefix}base" />
+      <child link="${prefix}tip" />
+    </joint>
 
   </xacro:macro>
 </robot>
